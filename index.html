@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style1.css">
     <title>Zeyad.Web</title>
 </head>
 <body>
+    <a class="skip-link" href="#maine">Skip to main content</a>
    <header>
     <a href="#maine" class="logo">Home</a>
-    <nav class="nave">
-<a href="#information" >Information</a>
-<a href="#channel" >Channel</a>
-<a href="#certificates" >Certificates</a>
-<a href="#contact" >Contact</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <nav class="nave" role="navigation" aria-label="Main navigation">
+        <a href="#information">Information</a>
+        <a href="#channel">Channel</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
     </nav>
    </header> 
 
@@ -23,8 +28,8 @@
 
    <section class="main" id="maine">
         <div class="toto">
-            <h2> Hello im Zeyad Tarek <br><span>Freelancer</span></h2>
-            <h3>This is my Introduction page about myself </h3>
+            <h2>Hello, I'm Zeyad Tarek <br><span>Freelancer</span></h2>
+            <h3>This is my introduction page about myself</h3>
             <a href="dodo.html" target="_blank" class="main-boton">My projects</a>
 
         </div>
@@ -37,10 +42,10 @@
         <div class="icon">
             <i class="fa-solid fa-user"></i>
         </div>
-            <div class="info">
-        <h3>About me</h3>
-        <p class="wordd">My name is Zeyad Tarek, Im 17 years old programer, Front-End websites developer. </p>
-            </div>
+                <div class="info">
+            <h3>About me</h3>
+            <p class="wordd">My name is Zeyad Tarek. I'm 17 years old, a front-end web developer.</p>
+                </div>
     </div>
     <div class="card">
         <div class="icon">
@@ -74,7 +79,7 @@
     <div class="klo">
         <div class="crt">
             <div class="sorh">
-                <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
             </div>
             <div class="arrow"><i class="fa-solid fa-arrow-up"></i></div>
             <h4>Youtube</h4>
@@ -88,13 +93,13 @@
     <h2 class="title">Certificates</h2>
     <div class="content">
         <div class="card">
-            <img src="certifi1.jpg" alt="Certificate 1">
+                <img src="certifi1.jpg" alt="Certificate 1" loading="lazy" decoding="async">
         </div>
         <div class="card">
-            <img src="certifi2.jpg" alt="Certificate 2">
+                <img src="certifi2.jpg" alt="Certificate 2" loading="lazy" decoding="async">
         </div>
         <div class="card">
-            <img src="certifi3.jpg" alt="Certificate 3">
+                <img src="certifi3.jpg" alt="Certificate 3" loading="lazy" decoding="async">
         </div>
     </div>
    </section>
@@ -102,24 +107,102 @@
    <footer>
     <p>&copy; 2026 Zeyad Tarek. All rights reserved.</p>
     <div class="social-links">
-        <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://web.whatsapp.com/" target="_blank"><i class="fa-brands fa-square-whatsapp"></i></a>
+            <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-square-whatsapp" aria-hidden="true"></i></a>
     </div>
    </footer>
 
    <script>
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries) => {
+    // Enhanced section reveal with stagger + reduced-motion support
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nave a');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nave');
+
+    const STAGGER_MS = 90;
+    const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function revealItemsInSection(section){
+        section.classList.add('animate');
+
+        // set active nav link + aria-current
+        const id = section.id;
+        navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('active', isActive);
+            if (isActive) link.setAttribute('aria-current', 'true');
+            else link.removeAttribute('aria-current');
+        });
+
+        // collect items to reveal
+        const selectors = ['.title', '.tit', 'h2', 'h3', 'h4', 'p', '.main-boton', '.card', '.cardd', '.crt', '.sorh', '.icon', '.info h3', '.info p'];
+        let items = [];
+        selectors.forEach(sel => {
+            section.querySelectorAll(sel).forEach(el => items.push(el));
+        });
+        items = Array.from(new Set(items));
+
+        if (items.length === 0) return;
+
+        if (REDUCED_MOTION){
+            items.forEach(el => el.classList.add('reveal','in'));
+            return;
+        }
+
+        // add reveal base class then stagger the 'in' class
+        items.forEach(el => el.classList.add('reveal'));
+        items.forEach((el, idx) => {
+            setTimeout(() => el.classList.add('in'), idx * STAGGER_MS);
+        });
+
+        // add a soft pulse to the main CTA shortly after reveal
+        const mainBtn = section.querySelector('.main-boton');
+        if (mainBtn && !REDUCED_MOTION) {
+            const delay = Math.min(1200, (items.length * STAGGER_MS) + 300);
+            setTimeout(() => {
+                mainBtn.classList.add('pulse');
+                // remove pulse after a few cycles to keep it subtle
+                setTimeout(()=> mainBtn.classList.remove('pulse'), 9000);
+            }, delay);
+        }
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
+            if (!entry.isIntersecting) return;
+            revealItemsInSection(entry.target);
+            obs.unobserve(entry.target);
+        });
+    }, { threshold: 0.28 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Menu toggle (mobile)
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('open', !expanded);
+        });
+
+        // Close menu when clicking a nav link (mobile)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Ensure menu resets on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1023) {
+                nav.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    }
    </script>
 </body>
 </html>
