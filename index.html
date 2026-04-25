@@ -17,20 +17,18 @@
     </button>
     <nav class="nave" role="navigation" aria-label="Main navigation">
         <a href="#information">Information</a>
+        <a href="#contact">Contact</a>
         <a href="#channel">Channel</a>
         <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
     </nav>
    </header> 
 
-
-
-
+   <main>
    <section class="main" id="maine">
         <div class="toto">
             <h2>Hello, I'm Zeyad Tarek <br><span>Freelancer</span></h2>
             <h3>This is my introduction page about myself</h3>
-            <a href="dodo.html" target="_blank" class="main-boton">My projects</a>
+            <a href="" class="main-boton">My projects</a>
 
         </div>
    </section>
@@ -103,6 +101,7 @@
         </div>
     </div>
    </section>
+   </main>
 
    <footer>
     <p>&copy; 2026 Zeyad Tarek. All rights reserved.</p>
@@ -121,6 +120,32 @@
 
     const STAGGER_MS = 90;
     const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Function to update active nav link on scroll
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100; // Adjust offset for header height
+            if (window.pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${current}`;
+            link.classList.toggle('active', isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', 'true');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    // Add scroll event listener for continuous nav highlighting
+    window.addEventListener('scroll', updateActiveNav);
+
+    // Initial call to set active nav on load
+    updateActiveNav();
 
     function revealItemsInSection(section){
         section.classList.add('animate');
