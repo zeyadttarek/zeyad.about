@@ -1,233 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style1.css">
-    <title>Zeyad.Web</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zeyad Tarek — 17-year-old front-end web developer & freelancer. Portfolio, services, and certificates." />
+  <title>Zeyad Tarek — Front-End Developer & Freelancer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <a class="skip-link" href="#maine">Skip to main content</a>
-   <header>
-    <a href="#maine" class="logo">Home</a>
-    <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">
-        <i class="fa-solid fa-bars"></i>
+  <a class="skip-link" href="#hero">Skip to main content</a>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Aurora background -->
+  <div class="aurora" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="blob blob-4"></span>
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+  </div>
+
+  <header id="siteHeader">
+    <a href="#hero" class="logo" data-magnetic>
+      <span class="logo-mark">Z</span>
+      <span class="logo-text">Zeyad<span class="dot">.</span>dev</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
     </button>
-    <nav class="nave" role="navigation" aria-label="Main navigation">
-        <a href="#information">Information</a>
-        <a href="#contact">Contact</a>
-        <a href="#channel">Channel</a>
-        <a href="#certificates">Certificates</a>
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+      <a href="#information">Information</a>
+      <a href="#contact">Contact</a>
+      <a href="#channel">Channel</a>
+      <a href="#certificates">Certificates</a>
+      <span class="nav-indicator" id="navIndicator"></span>
     </nav>
-   </header> 
+  </header>
 
-   <main>
-   <section class="main" id="maine">
-        <div class="toto">
-            <h2>Hello, I'm Zeyad Tarek <br><span>Freelancer</span></h2>
-            <h3>This is my introduction page about myself</h3>
-            <a href="https://zeyadttarek.github.io/tarek.about/" class="main-boton">My projects</a>
-
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse-dot"></span> Available for freelance work</div>
+          <h1 class="hero-title">
+            <span class="line" data-split>Hello, I'm</span>
+            <span class="line gradient-text" data-split>Zeyad Tarek</span>
+            <span class="line subtitle" data-split>Front-End <em>Freelancer</em></span>
+          </h1>
+          <p class="hero-lead">I design and build beautiful, responsive, motion-rich websites that feel as good as they look.</p>
+          <div class="hero-actions">
+            <a href="https://zeyadttarek.github.io/tarek.about/" class="btn btn-primary" data-magnetic target="_blank" rel="noopener noreferrer">
+              <span>My projects</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#certificates" class="btn btn-ghost" data-magnetic>
+              <span>See my certificates</span>
+            </a>
+            <a href="#contact" class="btn btn-ghost" data-magnetic>
+              <span>Get in touch</span>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>17</strong><span>Years old</span></div>
+            <div><strong>3+</strong><span>Certificates</span></div>
+            <div><strong>∞</strong><span>Curiosity</span></div>
+          </div>
         </div>
-   </section>
 
-   <section class="cards" id="information">
-    <h2 class="title">Information</h2>
-<div class="content">
-    <div class="card">
-        <div class="icon">
-            <i class="fa-solid fa-user"></i>
+        <div class="hero-visual" data-tilt>
+          <div class="portrait-frame">
+            <img src="portrait.png" alt="Illustration of Zeyad Tarek" />
+            <span class="ring ring-1"></span>
+            <span class="ring ring-2"></span>
+            <span class="chip chip-html">&lt;html&gt;</span>
+            <span class="chip chip-css">{ css }</span>
+            <span class="chip chip-js">js()</span>
+            <span class="chip chip-py">py</span>
+          </div>
         </div>
-                <div class="info">
-            <h3>About me</h3>
-            <p class="wordd">My name is Zeyad Tarek. I'm 17 years old, a front-end web developer.</p>
-                </div>
+      </div>
+
+      <div class="scroll-cue">
+        <span></span>
+        <p>scroll</p>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>HTML</span><span>✦</span><span>CSS</span><span>✦</span><span>JAVASCRIPT</span><span>✦</span><span>RESPONSIVE</span><span>✦</span><span>MOTION</span><span>✦</span><span>PYTHON</span><span>✦</span><span>FREELANCER</span><span>✦</span>
+        <span>HTML</span><span>✦</span><span>CSS</span><span>✦</span><span>JAVASCRIPT</span><span>✦</span><span>RESPONSIVE</span><span>✦</span><span>MOTION</span><span>✦</span><span>PYTHON</span><span>✦</span><span>FREELANCER</span><span>✦</span>
+      </div>
     </div>
-    <div class="card">
-        <div class="icon">
-            <i class="fa-brands fa-python"></i>
-        </div>
-            <div class="info">
-        <h3>My Services</h3>
-        <p class="wordd">Freelancer, I design and develop custom websites that are not only beautiful but also responsive and user-friendly. </p>
-            </div>
+
+    <!-- INFORMATION -->
+    <section class="section info-section" id="information">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Information</h2>
+        <p class="section-sub">A bit about me and what I do.</p>
+      </div>
+      <div class="info-grid">
+        <article class="glass-card tilt" data-tilt>
+          <div class="card-icon icon-blue"><i class="fa-solid fa-user"></i></div>
+          <h3>About me</h3>
+          <p>I'm Zeyad Tarek, 17 years old. A front-end web developer obsessed with clean code, smooth motion, and details that make products feel alive.</p>
+          <div class="card-glow"></div>
+        </article>
+        <article class="glass-card tilt" data-tilt>
+          <div class="card-icon icon-violet"><i class="fa-solid fa-code"></i></div>
+          <h3>My services</h3>
+          <p>Custom websites and landing pages — responsive, accessible, and beautifully animated. Built from scratch with HTML, CSS, and JavaScript.</p>
+          <div class="card-glow"></div>
+        </article>
+        <article class="glass-card tilt" data-tilt>
+          <div class="card-icon icon-pink"><i class="fa-brands fa-python"></i></div>
+          <h3>Always learning</h3>
+          <p>Currently exploring Python, deeper JavaScript patterns, and modern AI tooling to push what a single developer can ship.</p>
+          <div class="card-glow"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">Let's build something together.</p>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-card whatsapp" href="https://wa.me/971565697651" target="_blank" rel="noopener" data-tilt>
+          <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <h3>WhatsApp</h3>
+            <p class="num">+971 56 569 7651</p>
+            <span class="cta">Message me <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="contact-card youtube" href="https://t.me/Zeyad_Tarek_Amer" target="_blank" rel="noopener" data-tilt>
+          <div class="contact-icon"><i class="fa-brands fa-telegram"></i></div>
+          <div>
+            <h3>Telegram</h3>
+            <p class="num">Contact Me</p>
+            <span class="cta">Visit channel <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CHANNEL -->
+    <section class="section channel-section" id="channel">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">My YouTube Channel</h2>
+        <p class="section-sub">Tutorials, demos, and behind-the-scenes.</p>
+      </div>
+      <div class="channel-wrap">
+        <a class="channel-card" href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener" data-tilt>
+          <div class="play-ring">
+            <i class="fa-brands fa-youtube"></i>
+            <span class="ping"></span>
+            <span class="ping ping-2"></span>
+          </div>
+          <h3>Zeyad on YouTube</h3>
+          <p>Front-end tips, projects & motion experiments.</p>
+          <span class="cta">Open channel <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section class="section certificates-section" id="certificates">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Certificates</h2>
+        <p class="section-sub">Click any card to view full size.</p>
+      </div>
+      <div class="cert-grid">
+        <button class="cert-card" data-img="certifi1.jpg" data-tilt>
+          <img src="certifi1.jpg" alt="1 Million Prompters Certificate" loading="lazy" />
+          <div class="cert-meta"><h4>1 Million Prompters</h4><span>Dubai Future Foundation</span></div>
+        </button>
+        <button class="cert-card" data-img="certifi2.jpg" data-tilt>
+          <img src="certifi2.jpg" alt="Introduction to Modern AI Certificate" loading="lazy" />
+          <div class="cert-meta"><h4>Introduction to Modern AI</h4><span>Cisco Networking Academy</span></div>
+        </button>
+        <button class="cert-card" data-img="certifi4.jpg" data-tilt>
+          <img src="certifi4.jpg" alt="HTML Essentials Certificate" loading="lazy" />
+          <div class="cert-meta"><h4>HTML Essentials</h4><span>Cisco Networking Academy</span></div>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-inner">
+      <p>&copy; 2026 Zeyad Tarek. Crafted with care.</p>
+      <div class="social-links">
+        <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://wa.me/971565697651" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
     </div>
-</div>
-   </section>
-   
-   <section class="contact-with" id="contact">
-    <h2><div class="tit">Contact With</div></h2>
-    <div class="com">
-        <div class="cardd">
-            <div class="shkl">
-                <i class="fa-brands fa-square-whatsapp"></i>
-            </div>
-            <h3 class="what"><a href="https://wa.me/971565697651" target="_blank">Whatsapp click here!</a></h3>
-            <p class="num">+971565697651</p>
+  </footer>
 
-        </div>
+  <!-- Scroll to top -->
+  <button class="to-top" id="toTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-    </div>
-   </section>
-   
-   <section class="youtube" id="channel">
-    <h2 class="title">My Youtube Channel</h2>
-    <div class="klo">
-        <div class="crt">
-            <div class="sorh">
-                    <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-            </div>
-            <div class="arrow"><i class="fa-solid fa-arrow-up"></i></div>
-            <h4>Youtube</h4>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <img id="lightboxImg" alt="" />
+  </div>
 
-        </div>
-
-    </div>
-   </section>
-
-   <section class="certificates" id="certificates">
-    <h2 class="title">Certificates</h2>
-    <div class="content">
-        <div class="card">
-                <img src="certifi1.jpg" alt="Certificate 1" loading="lazy" decoding="async">
-        </div>
-        <div class="card">
-                <img src="certifi2.jpg" alt="Certificate 2" loading="lazy" decoding="async">
-        </div>
-        <div class="card">
-                <img src="certifi4.jpg" alt="Certificate 4" loading="lazy" decoding="async">
-        </div>
-    </div>
-   </section>
-   </main>
-
-   <footer>
-    <p>&copy; 2026 Zeyad Tarek. All rights reserved.</p>
-    <div class="social-links">
-            <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-            <a href="https://wa.me/971565697651" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-square-whatsapp" aria-hidden="true"></i></a>
-    </div>
-   </footer>
-
-   <script>
-    // Enhanced section reveal with stagger + reduced-motion support
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nave a');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nave');
-
-    const STAGGER_MS = 90;
-    const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // Function to update active nav link on scroll
-    function updateActiveNav() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100; // Adjust offset for header height
-            if (window.pageYOffset >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-        navLinks.forEach(link => {
-            const isActive = link.getAttribute('href') === `#${current}`;
-            link.classList.toggle('active', isActive);
-            if (isActive) {
-                link.setAttribute('aria-current', 'true');
-            } else {
-                link.removeAttribute('aria-current');
-            }
-        });
-    }
-
-    // Add scroll event listener for continuous nav highlighting
-    window.addEventListener('scroll', updateActiveNav);
-
-    // Initial call to set active nav on load
-    updateActiveNav();
-
-    function revealItemsInSection(section){
-        section.classList.add('animate');
-
-        // set active nav link + aria-current
-        const id = section.id;
-        navLinks.forEach(link => {
-            const isActive = link.getAttribute('href') === `#${id}`;
-            link.classList.toggle('active', isActive);
-            if (isActive) link.setAttribute('aria-current', 'true');
-            else link.removeAttribute('aria-current');
-        });
-
-        // collect items to reveal
-        const selectors = ['.title', '.tit', 'h2', 'h3', 'h4', 'p', '.main-boton', '.card', '.cardd', '.crt', '.sorh', '.icon', '.info h3', '.info p'];
-        let items = [];
-        selectors.forEach(sel => {
-            section.querySelectorAll(sel).forEach(el => items.push(el));
-        });
-        items = Array.from(new Set(items));
-
-        if (items.length === 0) return;
-
-        if (REDUCED_MOTION){
-            items.forEach(el => el.classList.add('reveal','in'));
-            return;
-        }
-
-        // add reveal base class then stagger the 'in' class
-        items.forEach(el => el.classList.add('reveal'));
-        items.forEach((el, idx) => {
-            setTimeout(() => el.classList.add('in'), idx * STAGGER_MS);
-        });
-
-        // add a soft pulse to the main CTA shortly after reveal
-        const mainBtn = section.querySelector('.main-boton');
-        if (mainBtn && !REDUCED_MOTION) {
-            const delay = Math.min(1200, (items.length * STAGGER_MS) + 300);
-            setTimeout(() => {
-                mainBtn.classList.add('pulse');
-                // remove pulse after a few cycles to keep it subtle
-                setTimeout(()=> mainBtn.classList.remove('pulse'), 9000);
-            }, delay);
-        }
-    }
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            revealItemsInSection(entry.target);
-            obs.unobserve(entry.target);
-        });
-    }, { threshold: 0.28 });
-
-    sections.forEach(s => observer.observe(s));
-
-    // Menu toggle (mobile)
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open', !expanded);
-        });
-
-        // Close menu when clicking a nav link (mobile)
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (nav.classList.contains('open')) {
-                    nav.classList.remove('open');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-
-        // Ensure menu resets on resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 1023) {
-                nav.classList.remove('open');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
-   </script>
+  <script src="script.js"></script>
 </body>
 </html>
