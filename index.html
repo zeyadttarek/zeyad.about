@@ -3,230 +3,420 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Zeyad Tarek — 17-year-old front-end web developer & freelancer. Portfolio, services, and certificates." />
-  <title>Zeyad Tarek — Front-End Developer & Freelancer</title>
-
+  <title>Zeyad Tarek — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a class="skip-link" href="#hero">Skip to main content</a>
 
-  <!-- Scroll progress -->
+  <!-- Custom cursor (desktop only) -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Custom cursor -->
-  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <!-- Particle canvas background -->
+  <canvas id="particleCanvas"></canvas>
 
-  <!-- Aurora background -->
-  <div class="aurora" aria-hidden="true">
-    <span class="blob blob-1"></span>
-    <span class="blob blob-2"></span>
-    <span class="blob blob-3"></span>
-    <span class="blob blob-4"></span>
-    <div class="grid-overlay"></div>
-    <div class="noise"></div>
-  </div>
+  <!-- Skip link -->
+  <a class="skip-link" href="#hero">Skip to main content</a>
 
-  <header id="siteHeader">
-    <a href="#hero" class="logo" data-magnetic>
-      <span class="logo-mark">Z</span>
-      <span class="logo-text">Zeyad<span class="dot">.</span>dev</span>
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header id="header">
+    <a href="#hero" class="logo" aria-label="Home">
+      <span class="logo-bracket">&lt;</span>ZT<span class="logo-bracket">/&gt;</span>
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Open menu">
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
     <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
-      <a href="#information">Information</a>
-      <a href="#contact">Contact</a>
-      <a href="#channel">Channel</a>
-      <a href="#certificates">Certificates</a>
-      <span class="nav-indicator" id="navIndicator"></span>
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#certificates" class="nav-link">Certificates</a>
     </nav>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="pulse-dot"></span> Available for freelance work</div>
-          <h1 class="hero-title">
-            <span class="line" data-split>Hello, I'm</span>
-            <span class="line gradient-text" data-split>Zeyad Tarek</span>
-            <span class="line subtitle" data-split>Front-End <em>Freelancer</em></span>
-          </h1>
-          <p class="hero-lead">I design and build beautiful, responsive, motion-rich websites that feel as good as they look.</p>
-          <div class="hero-actions">
-            <a href="https://zeyadttarek.github.io/tarek.about/" class="btn btn-primary" data-magnetic target="_blank" rel="noopener noreferrer">
-              <span>My projects</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="#certificates" class="btn btn-ghost" data-magnetic>
-              <span>See my certificates</span>
-            </a>
-            <a href="#contact" class="btn btn-ghost" data-magnetic>
-              <span>Get in touch</span>
-            </a>
-          </div>
-          <div class="hero-stats">
-            <div><strong>17</strong><span>Years old</span></div>
-            <div><strong>3+</strong><span>Certificates</span></div>
-            <div><strong>∞</strong><span>Curiosity</span></div>
-          </div>
-        </div>
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section id="hero">
+    <div class="geo geo-1"></div>
+    <div class="geo geo-2"></div>
+    <div class="geo geo-3"></div>
+    <div class="geo geo-4"></div>
+    <div class="geo geo-5"></div>
 
-        <div class="hero-visual" data-tilt>
-          <div class="portrait-frame">
-            <img src="portrait.png" alt="Illustration of Zeyad Tarek" />
-            <span class="ring ring-1"></span>
-            <span class="ring ring-2"></span>
-            <span class="chip chip-html">&lt;html&gt;</span>
-            <span class="chip chip-css">{ css }</span>
-            <span class="chip chip-js">js()</span>
-            <span class="chip chip-py">py</span>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Available for projects</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-greeting">Hello, I'm</span>
+          <span class="hero-name">Zeyad Tarek</span>
+        </h1>
+        <div class="hero-role">
+          <span class="role-prefix">I am a&nbsp;</span>
+          <span class="typewriter" id="typewriter"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+        <p class="hero-desc">
+          17-year-old front-end developer crafting beautiful, responsive web experiences with modern technologies.
+        </p>
+        <div class="hero-cta">
+          <a href="#about" class="btn btn-primary">
+            <span>Explore My Work</span>
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+          <a href="https://zeyadttarek.github.io/tarek.about/" target="_blank" rel="noopener" class="btn btn-ghost">
+            <i class="fa-solid fa-star"></i>
+            <span>My projects</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" data-target="10">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Certificates</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="17">0</span>
+            <span class="stat-label">Years Old</span>
           </div>
         </div>
       </div>
 
-      <div class="scroll-cue">
-        <span></span>
-        <p>scroll</p>
-      </div>
-    </section>
-
-    <!-- Marquee -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>HTML</span><span>✦</span><span>CSS</span><span>✦</span><span>JAVASCRIPT</span><span>✦</span><span>RESPONSIVE</span><span>✦</span><span>MOTION</span><span>✦</span><span>PYTHON</span><span>✦</span><span>FREELANCER</span><span>✦</span>
-        <span>HTML</span><span>✦</span><span>CSS</span><span>✦</span><span>JAVASCRIPT</span><span>✦</span><span>RESPONSIVE</span><span>✦</span><span>MOTION</span><span>✦</span><span>PYTHON</span><span>✦</span><span>FREELANCER</span><span>✦</span>
+      <div class="hero-visual">
+        <div class="avatar-wrapper" id="avatarWrapper">
+          <div class="avatar-glow"></div>
+          <div class="avatar-ring ring-1"></div>
+          <div class="avatar-ring ring-2"></div>
+          <div class="avatar-ring ring-3"></div>
+          <div class="avatar-frame" id="avatarFrame">
+            <!-- Placeholder shown by default; real image swapped in by JS if gogo.png exists -->
+            <div class="avatar-ph">
+              <div class="avatar-ph-bg"></div>
+              <span class="avatar-ph-initials">ZT</span>
+              <div class="avatar-ph-code">
+                <span>&lt;dev&gt;</span>
+                <span>code();</span>
+                <span>&lt;/dev&gt;</span>
+              </div>
+            </div>
+          </div>
+          <div class="avatar-orbit orbit-1">
+            <div class="orbit-icon" style="--orbit-color:#ff6b35"><i class="fa-brands fa-html5"></i></div>
+          </div>
+          <div class="avatar-orbit orbit-2">
+            <div class="orbit-icon" style="--orbit-color:#00d4ff"><i class="fa-brands fa-css3-alt"></i></div>
+          </div>
+          <div class="avatar-orbit orbit-3">
+            <div class="orbit-icon" style="--orbit-color:#ffd60a"><i class="fa-brands fa-js"></i></div>
+          </div>
+          <div class="avatar-orbit orbit-4">
+            <div class="orbit-icon" style="--orbit-color:#a8ff3e"><i class="fa-brands fa-python"></i></div>
+          </div>
+        </div>
+        <div class="code-float code-float-1"><code>&lt;div class="future"&gt;</code></div>
+        <div class="code-float code-float-2"><code>const zeyad = () =&gt; {}</code></div>
+        <div class="code-float code-float-3"><code>console.log("hello!");</code></div>
       </div>
     </div>
 
-    <!-- INFORMATION -->
-    <section class="section info-section" id="information">
-      <div class="section-head">
-        <span class="section-num">01</span>
-        <h2 class="section-title">Information</h2>
-        <p class="section-sub">A bit about me and what I do.</p>
-      </div>
-      <div class="info-grid">
-        <article class="glass-card tilt" data-tilt>
-          <div class="card-icon icon-blue"><i class="fa-solid fa-user"></i></div>
-          <h3>About me</h3>
-          <p>I'm Zeyad Tarek, 17 years old. A front-end web developer obsessed with clean code, smooth motion, and details that make products feel alive.</p>
-          <div class="card-glow"></div>
-        </article>
-        <article class="glass-card tilt" data-tilt>
-          <div class="card-icon icon-violet"><i class="fa-solid fa-code"></i></div>
-          <h3>My services</h3>
-          <p>Custom websites and landing pages — responsive, accessible, and beautifully animated. Built from scratch with HTML, CSS, and JavaScript.</p>
-          <div class="card-glow"></div>
-        </article>
-        <article class="glass-card tilt" data-tilt>
-          <div class="card-icon icon-pink"><i class="fa-brands fa-python"></i></div>
-          <h3>Always learning</h3>
-          <p>Currently exploring Python, deeper JavaScript patterns, and modern AI tooling to push what a single developer can ship.</p>
-          <div class="card-glow"></div>
-        </article>
-      </div>
-    </section>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section class="section contact-section" id="contact">
-      <div class="section-head">
-        <span class="section-num">02</span>
-        <h2 class="section-title">Contact</h2>
-        <p class="section-sub">Let's build something together.</p>
+  <!-- Wave -->
+  <div class="wave-divider wave-a">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/></svg>
+  </div>
+
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section id="about" class="reveal-section">
+    <div class="section-header">
+      <span class="section-tag">Who I Am</span>
+      <h2 class="section-title split-heading">About Me</h2>
+      <p class="section-sub">A passionate developer on a mission to build the web of tomorrow</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card tilt-card" data-color="cyan">
+        <div class="card-glow"></div>
+        <div class="card-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+        <h3>Who I Am</h3>
+        <p>My name is Zeyad Tarek. I'm 17 years old, a passionate front-end web developer from Egypt, living in the UAE.</p>
+        <div class="card-tag">Personal</div>
       </div>
-      <div class="contact-grid">
-        <a class="contact-card whatsapp" href="https://wa.me/971565697651" target="_blank" rel="noopener" data-tilt>
-          <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
-          <div>
-            <h3>WhatsApp</h3>
-            <p class="num">+971 56 569 7651</p>
-            <span class="cta">Message me <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+      <div class="about-card tilt-card" data-color="coral">
+        <div class="card-glow"></div>
+        <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+        <h3>What I Do</h3>
+        <p>I design and develop custom websites that are beautiful, responsive, and user-friendly. Freelance work welcome!</p>
+        <div class="card-tag">Services</div>
+      </div>
+      <div class="about-card tilt-card" data-color="lime">
+        <div class="card-glow"></div>
+        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>My Passion</h3>
+        <p>I love learning new technologies, building creative projects, and exploring the world of Artificial Intelligence.</p>
+        <div class="card-tag">Passion</div>
+      </div>
+      <div class="about-card tilt-card" data-color="gold">
+        <div class="card-glow"></div>
+        <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h3>My Vision</h3>
+        <p>To become a world-class developer and create impactful digital experiences that solve real problems at scale.</p>
+        <div class="card-tag">Future</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave -->
+  <div class="wave-divider wave-b">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z"/></svg>
+  </div>
+
+  <!-- ═══════════════ SKILLS ═══════════════ -->
+  <section id="skills" class="reveal-section">
+    <div class="section-header">
+      <span class="section-tag">Expertise</span>
+      <h2 class="section-title split-heading">My Skills</h2>
+      <p class="section-sub">Technologies I work with every day to build awesome things</p>
+    </div>
+    <div class="skills-rings">
+      <div class="skill-ring" data-percent="92" data-color="#ff6b35">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="50"/>
+            <circle class="ring-fill" cx="60" cy="60" r="50"/>
+          </svg>
+          <i class="fa-brands fa-html5 ring-icon"></i>
+          <span class="ring-pct">0%</span>
+        </div>
+        <span class="ring-label">HTML5</span>
+      </div>
+      <div class="skill-ring" data-percent="88" data-color="#00d4ff">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="50"/>
+            <circle class="ring-fill" cx="60" cy="60" r="50"/>
+          </svg>
+          <i class="fa-brands fa-css3-alt ring-icon"></i>
+          <span class="ring-pct">0%</span>
+        </div>
+        <span class="ring-label">CSS3</span>
+      </div>
+      <div class="skill-ring" data-percent="80" data-color="#ffd60a">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="50"/>
+            <circle class="ring-fill" cx="60" cy="60" r="50"/>
+          </svg>
+          <i class="fa-brands fa-js ring-icon"></i>
+          <span class="ring-pct">0%</span>
+        </div>
+        <span class="ring-label">JavaScript</span>
+      </div>
+      <div class="skill-ring" data-percent="70" data-color="#a8ff3e">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="50"/>
+            <circle class="ring-fill" cx="60" cy="60" r="50"/>
+          </svg>
+          <i class="fa-brands fa-python ring-icon"></i>
+          <span class="ring-pct">0%</span>
+        </div>
+        <span class="ring-label">Python</span>
+      </div>
+      <div class="skill-ring" data-percent="85" data-color="#c77dff">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="50"/>
+            <circle class="ring-fill" cx="60" cy="60" r="50"/>
+          </svg>
+          <i class="fa-solid fa-robot ring-icon"></i>
+          <span class="ring-pct">0%</span>
+        </div>
+        <span class="ring-label">AI Prompting</span>
+      </div>
+    </div>
+    <div class="tech-marquee-wrap">
+      <div class="tech-marquee">
+        <div class="marquee-track">
+          <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+          <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+          <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span class="tech-tag"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tech-tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+          <span class="tech-tag"><i class="fa-solid fa-robot"></i> AI Tools</span>
+          <span class="tech-tag"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</span>
+          <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+          <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+          <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span class="tech-tag"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tech-tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+          <span class="tech-tag"><i class="fa-solid fa-robot"></i> AI Tools</span>
+          <span class="tech-tag"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave -->
+  <div class="wave-divider wave-a">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/></svg>
+  </div>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section id="contact" class="reveal-section">
+    <div class="section-header">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title split-heading">Contact</h2>
+      <p class="section-sub">Have a project in mind? Let's build something amazing together</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card tilt-card" data-color="cyan">
+        <div class="card-glow"></div>
+        <div class="contact-icon-wrap whatsapp-wrap">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <h3>WhatsApp</h3>
+        <p class="contact-num">+971 565 697 651</p>
+        <a href="https://wa.me/971565697651" target="_blank" rel="noopener" class="contact-link">
+          Message Me <i class="fa-solid fa-arrow-right"></i>
         </a>
-        <a class="contact-card youtube" href="https://t.me/Zeyad_Tarek_Amer" target="_blank" rel="noopener" data-tilt>
-          <div class="contact-icon"><i class="fa-brands fa-telegram"></i></div>
-          <div>
-            <h3>Telegram</h3>
-            <p class="num">Contact Me</p>
-            <span class="cta">Visit channel <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+      </div>
+      <div class="contact-card tilt-card" data-color="coral">
+        <div class="card-glow"></div>
+        <div class="contact-icon-wrap youtube-wrap">
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+        <h3>YouTube Channel</h3>
+        <p>Watch my tutorials and tech content on YouTube</p>
+        <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener" class="contact-link">
+          Visit Channel <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CHANNEL -->
-    <section class="section channel-section" id="channel">
-      <div class="section-head">
-        <span class="section-num">03</span>
-        <h2 class="section-title">My YouTube Channel</h2>
-        <p class="section-sub">Tutorials, demos, and behind-the-scenes.</p>
-      </div>
-      <div class="channel-wrap">
-        <a class="channel-card" href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener" data-tilt>
-          <div class="play-ring">
-            <i class="fa-brands fa-youtube"></i>
-            <span class="ping"></span>
-            <span class="ping ping-2"></span>
+  <!-- Wave -->
+  <div class="wave-divider wave-b">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z"/></svg>
+  </div>
+
+  <!-- ═══════════════ CERTIFICATES ═══════════════ -->
+  <section id="certificates" class="reveal-section">
+    <div class="section-header">
+      <span class="section-tag">Achievements</span>
+      <h2 class="section-title split-heading">Certificates</h2>
+      <p class="section-sub">Recognition of my dedication to continuous learning</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card tilt-card" data-color="cyan" data-cert="certifi1.jpg" data-title="1 Million Prompters — Dubai Future Foundation">
+        <div class="card-glow"></div>
+        <div class="cert-badge"><i class="fa-solid fa-certificate"></i></div>
+        <!-- JS replaces .cert-img-wrap content with real image if certifi1.jpg exists -->
+        <div class="cert-img-wrap" id="certWrap1">
+          <div class="cert-ph" data-accent="cyan">
+            <div class="cert-ph-logo">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="cert-ph-body">
+              <p class="cert-ph-issuer">Dubai Future Foundation</p>
+              <h4 class="cert-ph-name">1 Million Prompters</h4>
+              <p class="cert-ph-sub">AI Prompt Engineering</p>
+            </div>
+            <div class="cert-ph-seal"><i class="fa-solid fa-shield-halved"></i></div>
           </div>
-          <h3>Zeyad on YouTube</h3>
-          <p>Front-end tips, projects & motion experiments.</p>
-          <span class="cta">Open channel <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-        </a>
+          <div class="cert-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>View Certificate</span>
+          </div>
+        </div>
+        <div class="cert-info">
+          <h3>1 Million Prompters</h3>
+          <p>Dubai Future Foundation — AI Prompt Engineering</p>
+          <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
+        </div>
       </div>
-    </section>
+      <div class="cert-card tilt-card" data-color="gold" data-cert="certifi4.jpg" data-title="Introduction to Modern AI — Cisco Networking Academy">
+        <div class="card-glow"></div>
+        <div class="cert-badge"><i class="fa-solid fa-certificate"></i></div>
+        <!-- JS replaces .cert-img-wrap content with real image if certifi2.jpg exists -->
+        <div class="cert-img-wrap" id="certWrap2">
+          <div class="cert-ph" data-accent="gold">
+            <div class="cert-ph-logo">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <div class="cert-ph-body">
+              <p class="cert-ph-issuer">Cisco Networking Academy</p>
+              <h4 class="cert-ph-name">Modern AI</h4>
+              <p class="cert-ph-sub">Introduction to Modern AI</p>
+            </div>
+            <div class="cert-ph-seal"><i class="fa-solid fa-shield-halved"></i></div>
+          </div>
+          <div class="cert-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>View Certificate</span>
+          </div>
+        </div>
+        <div class="cert-info">
+          <h3>Introduction to Modern AI</h3>
+          <p>Cisco Networking Academy — Ministry of Education</p>
+          <span class="cert-date"><i class="fa-regular fa-calendar"></i> Sep 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- CERTIFICATES -->
-    <section class="section certificates-section" id="certificates">
-      <div class="section-head">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Certificates</h2>
-        <p class="section-sub">Click any card to view full size.</p>
-      </div>
-      <div class="cert-grid">
-        <button class="cert-card" data-img="certifi1.jpg" data-tilt>
-          <img src="certifi1.jpg" alt="1 Million Prompters Certificate" loading="lazy" />
-          <div class="cert-meta"><h4>1 Million Prompters</h4><span>Dubai Future Foundation</span></div>
-        </button>
-        <button class="cert-card" data-img="certifi2.jpg" data-tilt>
-          <img src="certifi2.jpg" alt="Introduction to Modern AI Certificate" loading="lazy" />
-          <div class="cert-meta"><h4>Introduction to Modern AI</h4><span>Cisco Networking Academy</span></div>
-        </button>
-        <button class="cert-card" data-img="certifi4.jpg" data-tilt>
-          <img src="certifi4.jpg" alt="HTML Essentials Certificate" loading="lazy" />
-          <div class="cert-meta"><h4>HTML Essentials</h4><span>Cisco Networking Academy</span></div>
-        </button>
-      </div>
-    </section>
-  </main>
-
+  <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer>
-    <div class="foot-inner">
-      <p>&copy; 2026 Zeyad Tarek. Crafted with care.</p>
-      <div class="social-links">
-        <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://wa.me/971565697651" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <div class="footer-dots"></div>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>ZT<span class="logo-bracket">/&gt;</span>
       </div>
+      <p class="footer-tagline">Building the web, one line at a time.</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/channel/UCaiXAMHBibA6VFPB_YOvwUQ" target="_blank" rel="noopener" aria-label="YouTube" class="social-btn yt">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="https://wa.me/971565697651" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-btn wa">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Zeyad Tarek. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Scroll to top -->
-  <button class="to-top" id="toTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-    <img id="lightboxImg" alt="" />
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+    <div class="lightbox-backdrop" id="lbBackdrop"></div>
+    <div class="lightbox-content">
+      <button class="lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <img src="" alt="" id="lbImg" />
+      <p class="lb-title" id="lbTitle"></p>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="main.js" type="module"></script>
 </body>
 </html>
